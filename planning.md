@@ -47,3 +47,12 @@ Monitzation ideas
     x 1000 bits = +15 extra votes 
 
 Iteration 3 
+
+Channel Points Betting 
+
+- It should have a way to wager channel points in order to guess on what the community thinks the content creators rating is 
+
+- It should have a button that reveals the channel point distribution after the content creator has made their rating
+    x Ratings should not be displayed to the user until the content creator has rated
+
+
