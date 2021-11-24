@@ -1,5 +1,32 @@
 Iteration 1 
 
+- It should take in a link from tiermaker.com as an input and import information from the tier list 
+    x Should import - 
+        1. title
+        2. tier list board
+        3. corresponding images to be rated
+
+- It should create a tier list replica from the imported information 
+
+- It should allow the host to highlight an image to be staged for the next round to be rated 
+
+- It should contain a vote button that starts the voting round for the community 
+
+- It should contain a way for the chat to vote on their tier choice for the image
+    - Do they vote in Twitch chat? 
+        - Need to look into websockets if going this route 
+        - Leaning towards this route for future Twitch integration with bits and donations 
+    - Do they vote on the website someway? 
+        - Would need to create a shareable session. 
+
+- It should contain a final results poll that displays the results of the poll. The poll should show the percentage of people that voted for each tier. The poll should have the winning tier highlighted. 
+
+- It should add the image to the tier it was voted to. The new, updated tier should be displayed to the user before a new round begins. 
+
+- It should display the finished community tier when all images have been voted on 
+
+- It should have a way to download or share the community tier list when finished. 
+
 
 Iteration 2 
 
