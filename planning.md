@@ -30,6 +30,20 @@ Iteration 1
 
 Iteration 2 
 
+Monitzation ideas
 
+- It should have a settings menu that lets you change how bits and donations effect the community tier 
+
+- It should have a way to donate Twitch bits to "boost" how much your vote is worth 
+
+- It should have a linear boost setting 
+    x 100 bits = +1 extra votes 
+    x 500 bits = +5 extra votes 
+    x 1000 bits = +10 extra votes 
+
+- It should have an progressive boost setting 
+    x 100 bits = +1 extra vote 
+    x 500 bits = +6 extra votes 
+    x 1000 bits = +15 extra votes 
 
 Iteration 3 
