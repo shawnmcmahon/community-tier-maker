@@ -7,10 +7,12 @@ const HomePage = () => {
 
     const handleOnDragEnd = (result) => {
         console.log(result)
-
+        if (!result) {
+            return
+        }
         const items = Array.from(rankedBeverages); 
-        const [reorderedItems] = items.splice(result.source.index, 1); 
-        items.splice(result.destination.index, 0, reorderedItems); 
+        const [reorderedItem] = items.splice(result.source.index, 1); 
+        items.splice(result.destination.index, 0, reorderedItem); 
     
         setRankedBeverages(items) 
     }
@@ -20,25 +22,8 @@ const HomePage = () => {
             <DragDropContext onDragEnd={handleOnDragEnd}>
                 <Droppable droppableId="tiers"> 
                     { (provided) => (
-                        <div>
-                            <div className="outter-container border-black w-11/12 h-80 bg-black text-white" {...provided.droppableProps} ref={provided.innerRef}>
-                                <div className="tier-row flex-row text-white bg-gray-900 w-100 h-16">
-                                    <div className="row-label bg-red-800 w-20 h-16">S</div>
-                                </div>
-                                <div className="tier-row flex-row text-white bg-gray-900 w-100 h-16">
-                                    <div className="row-label bg-orange-500 w-20 h-16">A</div>
-                                </div>
-                                <div className="tier-row flex-row text-white bg-gray-900 w-100 h-16">
-                                    <div className="row-label bg-yellow-400 w-20 h-16">B</div>
-                                </div>
-                                <div className="tier-row flex-row text-white bg-gray-900 w-100 h-16">
-                                    <div className="row-label bg-yellow-300 w-20 h-16">C</div>
-                                </div>
-                                <div className="tier-row flex-row text-white bg-gray-900 w-100 h-16">
-                                    <div className="row-label bg-green-600 w-20 h-16">D</div>
-                                </div>
-                            </div>
-                        <ul className="item-list"> 
+                        <ul {...provided.droppableProps} ref={provided.innerRef}>
+        
                             {rankedBeverages.map((currentSoda, index) => {
                                 return (
                                     <Draggable key={currentSoda} draggableId={currentSoda} index={index}> 
@@ -51,8 +36,7 @@ const HomePage = () => {
                                 );
                             })}
                             {provided.placeholder}
-                        </ul>
-                    </div>
+                    </ul>
                 )}
                 </Droppable>
             </DragDropContext>
