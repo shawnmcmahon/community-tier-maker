@@ -1,45 +1,47 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const HomePage = () => {
+    const [sodas, setSodas] = useState(["Coke", "Pepsi", "Dr. Pepper", "Fanta Orange", "Fanta Grape", "Rootbeer", "Sprite", "MountainDew"])
+    const [rankedBeverages, setRankedBeverages ] = useState(sodas); 
+    
 
-    const allowDrop = event => {
-        event.preventDefault();
+    const handleOnDragEnd = (result) => {
+        console.log(result)
+        if (!result) {
+            return
+        }
+        const items = Array.from(rankedBeverages); 
+        const [reorderedItem] = items.splice(result.source.index, 1); 
+        items.splice(result.destination.index, 0, reorderedItem); 
+    
+        setRankedBeverages(items) 
     }
-
-    const drag = event => {
-        event.dataTransfer.setData("text", event.target.id)
-    }
-
-    const drop = event => {
-        event.preventDefault();
-        const data = event.dataTransfer.getData("text");
-        event.target.appendChild(document.getElementById(data));
-    }
-
+   
     return (
         <div className="flex flex-col justify-center align-center w-full h-full">
-            <div className="outter-container border-black w-11/12 h-80 bg-black text-white">
-                <div className="tier-row flex-row text-white bg-gray-900 w-100 h-16">
-                    <div className="row-label bg-red-800 w-20 h-16">S</div>
-                </div>
-                <div className="tier-row flex-row text-white bg-gray-900 w-100 h-16" ondrop={drop} ondragover={allowDrop}>
-                    <div className="row-label bg-orange-500 w-20 h-16">A</div>
-                </div>
-                <div className="tier-row flex-row text-white bg-gray-900 w-100 h-16">
-                    <div className="row-label bg-yellow-400 w-20 h-16">B</div>
-                </div>
-                <div className="tier-row flex-row text-white bg-gray-900 w-100 h-16">
-                    <div className="row-label bg-yellow-300 w-20 h-16">C</div>
-                </div>
-                <div className="tier-row flex-row text-white bg-gray-900 w-100 h-16">
-                    <div className="row-label bg-green-600 w-20 h-16">D</div>
-                </div>
-            </div>
-            <div className="item w-20 h-20 bg-black text-white" draggable="true" onDragStart={drag}> 
-                Item
-            </div>
+            <DragDropContext onDragEnd={handleOnDragEnd}>
+                <Droppable droppableId="tiers"> 
+                    { (provided) => (
+                        <ul {...provided.droppableProps} ref={provided.innerRef}>
+                            {rankedBeverages.map((currentSoda, index) => {
+                                return (
+                                    <Draggable key={currentSoda} draggableId={currentSoda} index={index}> 
+                                        {(provided) => (
+                                            <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} key={currentSoda} className="item w-20 h-20 bg-black text-white"> 
+                                                {currentSoda}
+                                            </li>
+                                        )}
+                                    </Draggable>
+                                );
+                            })}
+                            {provided.placeholder}
+                    </ul>
+                )}
+                </Droppable>
+            </DragDropContext>
         </div> 
-        )
+    )
 }
 
 export default HomePage;
