@@ -16,7 +16,6 @@ export const reorderSodas = (
      const current = [...sodasMap[source.droppableId]];
      const next = [...sodasMap[destination.droppableId]];
      const target = current[source.index];
-     console.log("source", source)
 
   // moving to same list
   if (source.droppableId === destination.droppableId) {
