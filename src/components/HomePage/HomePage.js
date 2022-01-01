@@ -2,13 +2,9 @@ import React, { useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const HomePage = () => {
-    const [sodas, setSodas] = useState({
-        s: ["Coke", "Pepsi", "Dr. Pepper"],
-        a: ["Fanta Orange", "Fanta Grape"],
-        b: ["Rootbeer", "Sprite", "MountainDew"]
-    })
+    const [sodas, setSodas] = useState(["Coke", "Pepsi", "Dr. Pepper", "Fanta Orange", "Fanta Grape", "Rootbeer", "Sprite", "MountainDew"])
     const [rankedBeverages, setRankedBeverages ] = useState(sodas); 
-
+    
 
     const handleOnDragEnd = (result) => {
         console.log(result)
