@@ -3,11 +3,21 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const HomePage = () => {
     const [sodas, setSodas] = useState(["Coke", "Pepsi", "Dr. Pepper", "Fanta Orange", "Fanta Grape", "Rootbeer", "Sprite", "MountainDew"])
+    const [rankedBeverages, setRankedBeverages ] = useState(sodas); 
 
+    const handleOnDragEnd = (result) => {
+        console.log(result)
+
+        const items = Array.from(rankedBeverages); 
+        const [reorderedItems] = items.splice(result.source.index, 1); 
+        items.splice(result.destination.index, 0, reorderedItems); 
+    
+        setRankedBeverages(items) 
+    }
    
     return (
         <div className="flex flex-col justify-center align-center w-full h-full">
-            <DragDropContext>
+            <DragDropContext onDragEnd={handleOnDragEnd}>
                 <Droppable droppableId="tiers"> 
                     { (provided) => (
                         <div>
@@ -29,7 +39,7 @@ const HomePage = () => {
                                 </div>
                             </div>
                         <ul className="item-list"> 
-                            {sodas.map((currentSoda, index) => {
+                            {rankedBeverages.map((currentSoda, index) => {
                                 return (
                                     <Draggable key={currentSoda} draggableId={currentSoda} index={index}> 
                                         {(provided) => (
@@ -40,6 +50,7 @@ const HomePage = () => {
                                     </Draggable>
                                 );
                             })}
+                            {provided.placeholder}
                         </ul>
                     </div>
                 )}
