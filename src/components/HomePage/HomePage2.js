@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const HomePage = () => {
-    const [sodas, setSodas] = useState({
+    const [sodasMap, setSodas] = useState({
         s: ["Coke", "Pepsi", "Dr. Pepper"],
         a: ["Fanta Orange", "Fanta Grape"],
         b: ["Rootbeer", "Sprite", "MountainDew"]
@@ -39,13 +39,13 @@ const HomePage = () => {
                         }),
                     );
             }}>
-            {Object.entries(sodas).map(([key, value]) => (
-                <AuthorList
-                internalScroll
-                key={key}
-                listId={key}
-                listType="CARD"
-                quotes={value}
+            {Object.entries(sodasMap).map(([key, value]) => (
+                <SodaList
+                    internalScroll
+                    key={key}
+                    listId={key}
+                    listType="CARD"
+                    sodas={v}
                 />
             ))}
         </DragDropContext>
