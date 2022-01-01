@@ -11,9 +11,9 @@ export default class SodaList extends Component {
 
     return (
       <div>
-        <div ref={dropProvided.innerRef}>
+        <div style={{display: "flex"}} ref={dropProvided.innerRef}>
           {sodas.map((soda, index) => (
-            <Draggable key={soda} draggableId={soda} index={index}>
+            <Draggable id={soda} key={soda} draggableId={soda} index={index} >
               {(
                 dragProvided
               ) => (
@@ -37,11 +37,11 @@ export default class SodaList extends Component {
 
   render() {
     const { listId, listType, internalScroll, isCombineEnabled } = this.props;
-
+    console.log(listId)
     return (
       <Droppable
+        id={listId}
         droppableId={listId}
-        type={listType}
         direction="horizontal"
         isCombineEnabled={isCombineEnabled}
       >

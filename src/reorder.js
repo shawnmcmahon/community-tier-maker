@@ -9,13 +9,14 @@ export const reorder = (list, startIndex, endIndex) => {
 
 
 export const reorderSodas = (
-  sodas,
+  sodasMap,
   source,
   destination,
  ) => {
-  const current= [...sodas[source.droppableId]];
-  const next = [...sodas[destination.droppableId]];
-  const target = current[source.index];
+     const current = [...sodasMap[source.droppableId]];
+     const next = [...sodasMap[destination.droppableId]];
+     const target = current[source.index];
+     console.log("source", source)
 
   // moving to same list
   if (source.droppableId === destination.droppableId) {
@@ -25,7 +26,7 @@ export const reorderSodas = (
       destination.index,
     );
     return {
-      ...sodas,
+      ...sodasMap,
       [source.droppableId]: reordered,
     };
   }
@@ -38,7 +39,7 @@ export const reorderSodas = (
   next.splice(destination.index, 0, target);
 
   return {
-    ...sodas,
+    ...sodasMap,
     [source.droppableId]: current,
     [destination.droppableId]: next,
   };

@@ -34,11 +34,11 @@ const HomePage = () => {
                     }
                 
                     setSodas(
-                        reorderSodas({
+                        reorderSodas(
                             sodasMap,
                             source,
                             destination,
-                        }),
+                        ),
                     );
             }}>
             {Object.entries(sodasMap).map(([key, value]) => (
