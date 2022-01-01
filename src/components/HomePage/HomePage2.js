@@ -32,7 +32,7 @@ const HomePage = () => {
                     }
                 
                     setSodas(
-                        reorderQuoteMap({
+                        reorderSodas({
                             sodas,
                             source,
                             destination,
