@@ -13,7 +13,7 @@ export default class SodaList extends Component {
       <div>
         <div ref={dropProvided.innerRef}>
           {sodas.map((soda, index) => (
-            <Draggable key={quote.id} draggableId={soda} index={index}>
+            <Draggable key={soda} draggableId={soda} index={index}>
               {(
                 dragProvided
               ) => (
@@ -23,7 +23,7 @@ export default class SodaList extends Component {
                   ref={dragProvided.innerRef}
                 >
                     <div style={{backgroundColor: "blue"}}> 
-
+                        {soda}
                     </div>
                 </div>
               )}

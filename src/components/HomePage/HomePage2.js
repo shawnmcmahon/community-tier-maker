@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import SodaList from '../SodaList/SodaList';
+import { reorder, reorderSodas } from '../../reorder';
 
 const HomePage = () => {
     const [sodasMap, setSodas] = useState({
@@ -7,7 +9,7 @@ const HomePage = () => {
         a: ["Fanta Orange", "Fanta Grape"],
         b: ["Rootbeer", "Sprite", "MountainDew"]
     })
-    const [rankedBeverages, setRankedBeverages ] = useState(sodas); 
+    const [rankedBeverages, setRankedBeverages ] = useState(sodasMap); 
 
 
     const handleOnDragEnd = (result) => {
@@ -27,13 +29,13 @@ const HomePage = () => {
         <DragDropContext 
             onDragEnd={({destination, source}) => {
                 // // dropped outside the list
-                    if (!result.destination) {
+                    if (!destination) {
                         return;
                     }
                 
                     setSodas(
                         reorderSodas({
-                            sodas,
+                            sodasMap,
                             source,
                             destination,
                         }),
@@ -45,7 +47,7 @@ const HomePage = () => {
                     key={key}
                     listId={key}
                     listType="CARD"
-                    sodas={v}
+                    sodas={value}
                 />
             ))}
         </DragDropContext>
