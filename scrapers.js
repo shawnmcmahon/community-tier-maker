@@ -21,16 +21,18 @@ async function scrapProduct(url) {
   const page = await browser.newPage(); 
   await page.goto(url);
 
-  const [el] = await page.$x('//*[@id="create-image-carousel"]');
-  const src = await el.getProperty('src'); 
-  const srcTxt = await src.jsonValue(); 
+  // const [el] = await page.$x('//*[@id="create-image-carousel"]');
+  // const src = await el.getProperty('src'); 
+  // const srcTxt = await src.jsonValue(); 
 
-  console.log({srcTxt})
+  // console.log({srcTxt})
 
-  page.$eval('#create-image-carousel', (div) => {
-    return div.innerHTML
-  })
+  // page.$eval('.create-image-carousel', (div) => {
+  //   return div.innerHTML
+  // })
 
+  const pic = await page.evaluate(el => el.innerHTML, await page.$('#create-image-carousel'));
+  console.log({pic})
   browser.close();
 }
 
