@@ -28,7 +28,7 @@ export const AuthorList = ({listId, urls}) => {
                                     {...dragProvided.draggableProps}
                                     ref={dragProvided.innerRef}
                                     >
-                                       <img className="flex max-h-16" src={url} />
+                                        <img className="flex max-h-16" src={url} />
                                     </div>
                                 )}
                                 </Draggable>

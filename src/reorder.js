@@ -9,25 +9,25 @@ export const reorder = (list, startIndex, endIndex) => {
 
 
 export const reorderSodas = (
-  sodasMap,
-  source,
-  destination,
- ) => {
-     const current = [...sodasMap[source.droppableId]];
-     const next = [...sodasMap[destination.droppableId]];
-     const target = current[source.index];
+    sodasMap,
+    source,
+    destination,
+  ) => {
+      const current = [...sodasMap[source.droppableId]];
+      const next = [...sodasMap[destination.droppableId]];
+      const target = current[source.index];
 
-  // moving to same list
-  if (source.droppableId === destination.droppableId) {
-    const reordered = reorder(
-      current,
-      source.index,
-      destination.index,
-    );
-    return {
-      ...sodasMap,
-      [source.droppableId]: reordered,
-    };
+    // moving to same list
+    if (source.droppableId === destination.droppableId) {
+      const reordered = reorder(
+        current,
+        source.index,
+        destination.index,
+      );
+      return {
+        ...sodasMap,
+        [source.droppableId]: reordered,
+      };
   }
 
   // moving to different list
