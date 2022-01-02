@@ -11,9 +11,13 @@ export const SodaList = ({listId, listType, sodas}) => {
             isCombineEnabled={false}
         >
             {dropProvided => (
-                <div {...dropProvided.droppableProps}>
+                <div className="outter-container border-black w-11/12 h-10 bg-black text-white" 
+                {...dropProvided.droppableProps}>
                     <div>
-                        <div style={{display: "flex"}} ref={dropProvided.innerRef}>
+                        <div 
+                            className="tier-row flex flex-row text-white bg-gray-900 w-100 h-16"
+                            ref={dropProvided.innerRef}
+                        >
                         {sodas.map((soda, index) => (
                             <Draggable id={soda} key={soda} draggableId={soda} index={index} >
                             {dragProvided => (
@@ -22,7 +26,7 @@ export const SodaList = ({listId, listType, sodas}) => {
                                 {...dragProvided.draggableProps}
                                 ref={dragProvided.innerRef}
                                 >
-                                    <div style={{backgroundColor: "blue"}}> 
+                                    <div className="bg-yellow-50 text-black m-1"> 
                                         {soda}
                                     </div>
                                 </div>
