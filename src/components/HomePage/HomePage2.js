@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd';
 import { AuthorList } from '../Authorlist/Authorlist';
 import { reorderSodas } from '../../reorder';
+import { scrapeImages } from '../../../scrapers';
 
 const HomePage = () => {
     const [sodasMap, setSodas] = useState({

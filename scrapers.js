@@ -16,31 +16,24 @@ puppeteer.use(StealthPlugin())
 
 
 
-async function scrapProduct(url) {
+async function scrapeImages(url) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage(); 
   await page.goto(url);
-
-  // const [el] = await page.$x('//*[@id="create-image-carousel"]');
-  // const src = await el.getProperty('src'); 
-  // const srcTxt = await src.jsonValue(); 
-
-  // console.log({srcTxt})
-
-  // page.$eval('.create-image-carousel', (div) => {
-  //   return div.innerHTML
-  // })
-
   const data = await page.evaluate(el => el.innerHTML, await page.$('#create-image-carousel'));
   const innerHTMLarr = data.match(/images(.*?).png/g).map(val => {
     console.log(val)
-  })
+    return val;
+  });
 
-  console.log({innerHTMLarr})
+  console.log({innerHTMLarr});
 
-  browser.close()
+  browser.close();
+};
 
-}
 
-scrapProduct('https://tiermaker.com/create/mlb-teams-102331')
+
+scrapeImages('https://tiermaker.com/create/mlb-teams-102331')
+
+export default scrapeImages;
 
