@@ -10,8 +10,11 @@ const HomePage = () => {
         b: [],
         c: [], 
         d: [], 
-        u: ["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/15-09-26-RalfR-WLC-0098.jpg/255px-15-09-26-RalfR-WLC-0098.jpg",
-        "https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/PepsiLight2009.jpg/225px-PepsiLight2009.jpg"    
+        u: ["https://tiermaker.com/images/chart/chart/the-definitive-soda-tier-list-30678/cocacoladietjpg",
+        "https://tiermaker.com/images/chart/chart/the-definitive-soda-tier-list-30678/7updietcherryjpeg",
+        "https://tiermaker.com/images/chart/chart/the-definitive-soda-tier-list-30678/fantaorangejpg",  
+        "https://tiermaker.com/images/chart/chart/the-definitive-soda-tier-list-30678/mtndewpng",
+        "https://tiermaker.com/images/chart/chart/the-definitive-soda-tier-list-30678/spritepng"    
     ]
     })
 
