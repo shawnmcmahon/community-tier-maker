@@ -5,24 +5,12 @@ import { reorder, reorderSodas } from '../../reorder';
 
 const HomePage = () => {
     const [sodasMap, setSodas] = useState({
-        s: ["Coke", "Pepsi", "Dr. Pepper"],
-        a: ["Fanta Orange", "Fanta Grape"],
-        b: ["Rootbeer", "Sprite", "MountainDew"]
+        s: ["Coke", "Pepsi", "Fanta Orange"],
+        a: ["Mountain Dew"],
+        b: ["Sprite",],
+        c: [], 
+        d: ["Rootbeer", "Fanta Grape"], 
     })
-    const [rankedBeverages, setRankedBeverages ] = useState(sodasMap); 
-
-
-    const handleOnDragEnd = (result) => {
-        console.log(result)
-        if (!result) {
-            return
-        }
-        const items = Array.from(rankedBeverages); 
-        const [reorderedItem] = items.splice(result.source.index, 1); 
-        items.splice(result.destination.index, 0, reorderedItem); 
-    
-        setRankedBeverages(items) 
-    }
 
     
     return (
