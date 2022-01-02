@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd';
 import { AuthorList } from '../Authorlist/Authorlist';
 import { reorderSodas } from '../../reorder';
 import { scrapeImages } from '../../scrapers';
+import { getImages } from '../../utilities/apiCalls';
 
 const HomePage = () => {
     const [sodasMap, setSodas] = useState({
@@ -19,7 +20,13 @@ const HomePage = () => {
     ]
     })
 
-    
+    useEffect(() => {
+        getImages('https://tiermaker.com/create/mlb-teams-102331')
+        // return () => {
+        //     cleanup
+        // }
+    }, [])
+ 
 
     
     return (

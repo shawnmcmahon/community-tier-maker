@@ -1,13 +1,23 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-extra');
 const express = require('express');
 
 const app = express();
 
 app.get('/screenshot', async (req, res) => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(req.query.url); // URL is given by the "user" (your client-side application)
-    const screenshotBuffer = await page.screenshot();
+  console.log(req.query.url, 'req')
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage(); 
+  await page.goto(req.query.url);
+  // const data = await page.evaluate(el => el.innerHTML, await page.$('#create-image-carousel'));
+  // const innerHTMLarr = data.match(/images(.*?).png/g).map(val => {
+  //   console.log(val)
+  //   return val;
+  // });
+  const screenshotBuffer = await page.screenshot();
+
+ 
+
+  // browser.close();
 
     // Respond with the image
     res.writeHead(200, {
