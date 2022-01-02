@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd';
 import { AuthorList } from '../Authorlist/Authorlist';
 import { reorderSodas } from '../../reorder';
-import { scrapeImages } from '../../../scrapers';
+import { scrapeImages } from '../../scrapers';
 
 const HomePage = () => {
     const [sodasMap, setSodas] = useState({
@@ -18,6 +18,8 @@ const HomePage = () => {
         "https://tiermaker.com/images/chart/chart/the-definitive-soda-tier-list-30678/spritepng"    
     ]
     })
+
+    
 
     
     return (
