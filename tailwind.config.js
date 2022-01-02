@@ -5,7 +5,7 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       'white': '#ffffff',
-      'darkgray': '#333',
+      'darkgray': '#1A1A17',
       'black': '#000000',
       'midnight': '#121063',
       'metal': '#565584',
